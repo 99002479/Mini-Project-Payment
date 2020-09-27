@@ -6,7 +6,7 @@
 #define PROJECT_NAME "Payment"
 
 /* Prototypes for all the test functions */
-void test_balance(void)
+void test_balance(void);
 void test_accounttype(void);
 
 

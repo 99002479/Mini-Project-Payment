@@ -1,4 +1,5 @@
 #include <pay.h>
+#include <string.h>
 
 int checkbalance(float old, float pay)
 {

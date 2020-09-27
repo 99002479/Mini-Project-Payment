@@ -49,7 +49,7 @@ int getaccounttype(float old, float pay)
 	  float balance;
 	   do{
 		printf("\nCheck Balance?");
-		ch=getche();
+		ch=getchar();
 	 }while(ch!='Y' && ch!='N');
 	 switch(ch){
 	      case 'Y':
@@ -63,7 +63,7 @@ int getaccounttype(float old, float pay)
 	int result;
         do{
 		printf("\nCheck Account Type?");
-		ch=getche();
+		ch=getchar();
 	 }while(ch!='Y' && ch!='N');
 	 switch(ch){
 	      case 'Y':

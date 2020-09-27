@@ -1,6 +1,4 @@
 /*#include <test_pay.h>*/			/* Add include file*/
-#include <stdio.h>
-#include <stdlib.h>
 
 struct date{
 	   int month;

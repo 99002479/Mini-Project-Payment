@@ -1,7 +1,7 @@
+/*
 #include <CUnit/Basic.h>
 #include <CUnit/CUnit.h>
-#include "unity.h"
-#include "pay.h"
+#include <pay.h>
 
 #define PROJECT_NAME "Payment"
 

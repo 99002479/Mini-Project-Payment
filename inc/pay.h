@@ -22,6 +22,7 @@ struct account {
 	float payment;
 	struct date lastpayment;
   }customer;
+  int tl,sl,ts;
  
 int checkbalance(float, float);
 int getaccounttype(float, float);

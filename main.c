@@ -1,5 +1,11 @@
 /*#include <test_pay.h>*/			/* Add include file*/
 
+struct date{
+	   int month;
+	   int day;
+	   int year;
+	   };
+
 struct account {
 	int number;
 	char name[100];

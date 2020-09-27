@@ -1,5 +1,18 @@
 /*#include <test_pay.h>*/			/* Add include file*/
 
+struct account {
+	int number;
+	char name[100];
+	int acct_no;
+	float mobile_no;
+	char street[100];
+	char city[100];
+	char acct_type;
+	float oldbalance;
+	float newbalance;
+	float payment;
+	struct date lastpayment;
+  }customer;
 
 void main()
 	{

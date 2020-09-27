@@ -1,5 +1,5 @@
 # Name of the project
-PROJECT_NAME = Polygon
+PROJECT_NAME = Payment
 
 # Output directory
 BUILD = build

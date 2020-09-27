@@ -96,7 +96,7 @@ int getaccounttype(float old, float pay)
 
 	 do{
 		printf("\nEnter your choice:");
-		ch=getche();
+		ch=getchar();
 	 }while(ch!='1' && ch!='2');
 
 	 switch(ch){
@@ -116,7 +116,7 @@ int getaccounttype(float old, float pay)
 			    output();
 			}
 			printf("\n\nAgain?(y/n)");
-			ch=getche();
+			ch=getchar();
 		    }while(ch=='y');
 		    fclose(fp);
 		    break;
@@ -146,7 +146,7 @@ int getaccounttype(float old, float pay)
 			if(m!=0)
 			printf("\n\nDoesn't exist\n");
 			printf("\nAnother?(y/n)");
-			ch=getche();
+			ch=getchar();
 		    }while(ch=='y');
 		    fclose(fp);
 	      }

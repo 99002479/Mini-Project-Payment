@@ -1,4 +1,6 @@
 /*#include <test_pay.h>*/			/* Add include file*/
+#include <stdio.h>
+#include <stdlib.h>
 
 void main()
 	{
@@ -12,7 +14,7 @@ void main()
 
 	  do{
 	       printf("\nOPTION:");
-	       ch=getche();
+	       ch=getchar();
 	  }while(ch<='0' || ch>'3');
 
 	  switch(ch){
@@ -36,7 +38,7 @@ void main()
 			printf("\n1 --- Search by customer number\n");
 			printf("2 --- Search by customer name\n");
 			search();
-			ch=getche();
+			ch=getchar();
 			main();
 		case '3':
 			exit(1);

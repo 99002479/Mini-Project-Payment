@@ -1,4 +1,3 @@
-
 #include <pay.h>
 #include <string.h>
 
@@ -21,42 +20,42 @@ int getaccounttype(float old, float pay)
 
    void input()
 	{
-	  FILE *fp=fopen("Record.dat","rb");
+	  FILE *fp=fopen("Record.txt","r");
 	  fseek (fp,0,SEEK_END);
 	  tl=ftell(fp);
 	  sl=sizeof(customer);
 	  ts=tl/sl;
 	  fseek(fp,(ts-1)*sl,SEEK_SET);
 	  fread(&customer,sizeof(customer),1,fp);
-	  printf("\nCustomer no:%d\n",++customer.number);
+	  printf("\nCustomer no: %d",++customer.number);
 	  fclose(fp);
-	  printf("         Account number:");
+	  printf("\nAccount number: ");
 	  scanf("%d",&customer.acct_no);
-	  printf("\n       Name:");
+	  printf("\nName: ");
 	  scanf("%s",customer.name);
-	  printf("\n       mobile no:");
+	  printf("\nMobile No: ");
 	  scanf("%f",&customer.mobile_no);
-	  printf("         Street:");
+	  printf("\nStreet: ");
 	  scanf("%s",customer.street);
-	  printf("         City:");
+	  printf("\nCity: ");
 	  scanf("%s",customer.city);
-	  printf("         Previous balance:");
+	  printf("\nPrevious Balance: ");
 	  scanf("%f",&customer.oldbalance);
-	  printf("         Current payment:");
+	  printf("\nCurrent Payment: ");
 	  scanf("%f",&customer.payment);
-	  printf("         Payment date(mm/dd/yyyy):");
+	  printf("\nPayment date(mm/dd/yyyy): ");
 	  scanf("%d/%d/%d",&customer.lastpayment.month,&customer.lastpayment.day,&customer.lastpayment.year);
 	  
 	  char ch;
 	  float balance;
 	   do{
-		printf("\nCheck Balance?");
+		printf("\nCheck Balance? ");
 		ch=getchar();
 	 }while(ch!='Y' && ch!='N');
 	 switch(ch){
 	      case 'Y':
 		    balance = checkbalance(customer.oldbalance,customer.payment);
-		    printf("\nCurrent Balance:%f\n",balance);
+		    printf("\nCurrent Balance: %f",balance);
 		    break;
           case 'N':
 	        break;
@@ -64,13 +63,13 @@ int getaccounttype(float old, float pay)
 	
 	int result;
         do{
-		printf("\nCheck Account Type?");
+		printf("\nCheck Account Type? ");
 		ch=getchar();
 	 }while(ch!='Y' && ch!='N');
 	 switch(ch){
 	      case 'Y':
            	 result = getaccounttype(customer.oldbalance, customer.payment);
-          	 printf("\nRESULT:%d\n",result);
+          	 printf("\nRESULT: %d",result);
             	 break;
               case 'N':
             	 break;
@@ -82,7 +81,7 @@ int getaccounttype(float old, float pay)
    void writefile()
    {
 	  FILE *fp;
-	  fp=fopen("Record.dat","ab");
+	  fp=fopen("Record.txt","a");
 	  fwrite(&customer,sizeof(customer),1,fp);
 	  fclose(fp);
 	  return;
@@ -94,10 +93,10 @@ int getaccounttype(float old, float pay)
 	 char nam[100];
 	 int n,i,m=1;
 	 FILE *fp;
-	 fp=fopen("Record.dat","rb");
+	 fp=fopen("Record.txt","r");
 
 	 do{
-		printf("\nEnter your choice:");
+		printf("\nEnter your choice: ");
 		ch=getchar();
 	 }while(ch!='1' && ch!='2');
 
@@ -108,7 +107,7 @@ int getaccounttype(float old, float pay)
 		    sl=sizeof(customer);
 		    ts=tl/sl;
 		    do{
-			printf("\nChoose customer number:");
+			printf("\nChoose customer number: ");
 			scanf("%d",&n);
 			if(n<=0 || n>ts)
 			printf("\nEnter valid number\n");
@@ -117,7 +116,7 @@ int getaccounttype(float old, float pay)
 			    fread(&customer,sl,1,fp);
 			    output();
 			}
-			printf("\n\nAgain?(y/n)");
+			printf("\n\nAgain?(y/n) ");
 			ch=getchar();
 		    }while(ch=='y');
 		    fclose(fp);
@@ -132,7 +131,7 @@ int getaccounttype(float old, float pay)
 		    n=customer.number;
 
 		    do{
-			printf("\nEnter the name:");
+			printf("\nEnter the name: ");
 			scanf("%s",nam);
 			fseek(fp,0,SEEK_SET);
 			for(i=1;i<=n;i++)
@@ -147,7 +146,7 @@ int getaccounttype(float old, float pay)
 			}
 			if(m!=0)
 			printf("\n\nDoesn't exist\n");
-			printf("\nAnother?(y/n)");
+			printf("\nAnother?(y/n) ");
 			ch=getchar();
 		    }while(ch=='y');
 		    fclose(fp);
@@ -159,31 +158,31 @@ int getaccounttype(float old, float pay)
 
    void output()
 	 {
-	   printf("\n\n    Customer no    :%d\n",customer.number);
-	   printf("    Name 	   :%s\n",customer.name);
-	   printf("    Mobile no      :%.f\n",customer.mobile_no);
-	   printf("    Account number :%d\n",customer.acct_no);
-	   printf("    Street         :%s\n",customer.street);
-	   printf("    City           :%s\n",customer.city);
-	   printf("    Old balance    :%.2f\n",customer.oldbalance);
-	   printf("    Current payment:%.2f\n",customer.payment);
-	   printf("    New balance    :%.2f\n",customer.newbalance);
-	   printf("    Payment date   :%d/%d/%d\n\n",customer.lastpayment.month,customer.lastpayment.day,customer.lastpayment.year);
-	   printf("    Account status :");
+	   printf("\nCustomer no  :%d\n",customer.number);
+	   printf("Name 	  :%s\n",customer.name);
+	   printf("Mobile no      :%f\n",customer.mobile_no);
+	   printf("Account number :%d\n",customer.acct_no);
+	   printf("Street         :%s\n",customer.street);
+	   printf("City           :%s\n",customer.city);
+	   printf("Old balance    :%f\n",customer.oldbalance);
+	   printf("Current payment:%f\n",customer.payment);
+	   printf("New balance    :%f\n",customer.newbalance);
+	   printf("Payment date   :%d/%d/%d\n\n",customer.lastpayment.month,customer.lastpayment.day,customer.lastpayment.year);
+	   printf("Account status :");
 
 	   switch(customer.acct_type)
 	      {
 	      case 'I':
-		 printf("INSUFFICIENT BALANCE\n\n");
+		 printf("\nINSUFFICIENT BALANCE");
 		 break;
 	      case 'S':
-		 printf("SUFFICIENT BALANCE\n\n");
+		 printf("\nSUFFICIENT BALANCE");
 		 break;
 	      case 'N':
-		 printf("NEGATIVE BALANCE\n\n");
+		 printf("\nNEGATIVE BALANCE");
 		 break;
 	      default:
-		 printf("ERROR\\n\n");
+		 printf("\nERROR");
 	      }
 	      return;
 	   }

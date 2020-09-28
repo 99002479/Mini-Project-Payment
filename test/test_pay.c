@@ -39,6 +39,10 @@ int main() {
 /* Write all the test functions */
 void test_balance(void) {
   CU_ASSERT(950 == checkbalance(1000, 50));
+  CU_ASSERT(-50 == checkbalance(100, 150));
+  CU_ASSERT(-150 == checkbalance(-50, 100));
+  CU_ASSERT(-50 == checkbalance(-50, 0));
+  CU_ASSERT(100 == checkbalance(100, 0));
 
   /* Dummy fail*/
   CU_ASSERT(100 == checkbalance(100, 10));
@@ -46,6 +50,9 @@ void test_balance(void) {
 
 void test_accounttype(void) {
   CU_ASSERT(1 == getaccounttype(1000, 50));
+  CU_ASSERT(0 == getaccounttype(100, 150));
+  CU_ASSERT(1 == getaccounttype(100, 0));
+  CU_ASSERT(-1 == getaccounttype(-100, 0));
 
   /* Dummy fail*/
   CU_ASSERT(0 == getaccounttype(1000, 50));

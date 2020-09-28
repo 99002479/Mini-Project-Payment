@@ -1,24 +1,24 @@
-#include <pay.h>			/* Add include file*/
+#include <pay.h>			
 
 void main()
 	{
 	  int i,n;
 	  char ch;
 
-	  printf("   PAYMENT SYSTEM:\n\n");
-	  printf("\n1:    ADD ACOOUNT\n");
-	  printf("2:    SEARCH CUSTOMER\n");
-	  printf("3:    EXIT\n");
+	  printf("\nPAYMENT SYSTEM:\n");
+	  printf("\n1: ADD ACOOUNT");
+	  printf("\n2: SEARCH CUSTOMER");
+	  printf("\n3: EXIT");
 
 	  do{
-	       printf("\nOPTION:");
+	       printf("\nOPTION: ");
 	       ch=getchar();
 	  }while(ch<='0' || ch>'3');
 
 	  switch(ch){
 		case '1':
 
-			printf("\nHOW MANY ACCOUNTS?");
+			printf("\nNO. OF ACCOUNTS: ");
 			scanf("%d",&n);
 			for(i=0;i<n;i++){
 				input();
@@ -32,9 +32,9 @@ void main()
 			main();
 		case '2':
 
-			printf("SEARCH BY?\n");
-			printf("\n1 --- Search by customer number\n");
-			printf("2 --- Search by customer name\n");
+			printf("\nSEARCH BY? ");
+			printf("\n1: Customer number");
+			printf("\n2: Customer name");
 			search();
 			ch=getchar();
 			main();
